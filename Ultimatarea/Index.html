@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juegos Interactivos</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <!-- Burbujas flotantes rojas -->
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+
+    <div class="container">
+        <!-- Página Principal -->
+        <div id="mainPage">
+            <h1>Juegos Interactivos</h1>
+            <p class="description">
+                ¡Bienvenido! Elige uno de los siguientes juegos y diviértete poniendo a prueba tu memoria y habilidades lógicas.
+            </p>
+            
+            <div class="games-grid">
+                <div class="game-card" onclick="startGame('memory')">
+                    <h2>Memoria</h2>
+                    <p>Encuentra todas las parejas de cartas. Pon a prueba tu memoria visual y concentración.</p>
+                    <button class="play-btn">Jugar Ahora</button>
+                </div>
+                
+                <div class="game-card" onclick="startGame('guess')">
+                    <h2> Adivina el Número</h2>
+                    <p>Intenta adivinar el número secreto entre 1 y 100. ¿Cuántos intentos necesitarás?</p>
+                    <button class="play-btn">Jugar Ahora</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Juego de Memoria -->
+        <div id="memoryGame" class="game-container">
+            <button class="back-btn" onclick="backToMain()">← Volver al Inicio</button>
+            <h2 style="text-align: center; color: #ffff00; margin-bottom: 20px; text-shadow: 0 0 15px rgba(255, 255, 0, 0.8);">Juego de Memoria</h2>
+            <p style="text-align: center; color: #ffffff; margin-bottom: 20px;">
+                Encuentra todas las parejas de emojis. Haz clic en dos cartas para voltearlas.
+            </p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-value" id="moves">0</div>
+                    <div class="stat-label">Movimientos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="pairs">0</div>
+                    <div class="stat-label">Parejas</div>
+                </div>
+            </div>
+
+            <div class="memory-grid" id="memoryGrid"></div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="guess-btn" onclick="resetMemory()">Nuevo Juego</button>
+            </div>
+        </div>
+
+        <!-- Juego Adivina el Número -->
+        <div id="guessGame" class="game-container">
+            <button class="back-btn" onclick="backToMain()">← Volver al Inicio</button>
+            <div class="guess-game">
+                <h2 style="color: #ffff00; margin-bottom: 20px; text-shadow: 0 0 15px rgba(255, 255, 0, 0.8);">Adivina el Número</h2>
+                <p style="color: #ffffff; margin-bottom: 20px;">
+                    He pensado un número entre 1 y 100. ¡Intenta adivinarlo!
+                </p>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="attempts">0</div>
+                        <div class="stat-label">Intentos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="bestScore">-</div>
+                        <div class="stat-label">Mejor Puntaje</div>
+                    </div>
+                </div>
+
+                <input type="number" id="guessInput" class="guess-input" placeholder="Ingresa un número" min="1" max="100">
+                <div>
+                    <button class="guess-btn" onclick="makeGuess()">Adivinar</button>
+                    <button class="guess-btn" onclick="resetGuess()">Nuevo Juego</button>
+                </div>
+                <div id="guessMessage"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="jscriot.js"></script>
+</body>
+</html>
